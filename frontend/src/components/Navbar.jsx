@@ -12,7 +12,7 @@ const Navbar = ({ setShowLogin }) => {
       }`}
     >
       <Link to="/">
-        <img src={assets.logo} alt="logo" className="h-8" />
+        <img src={assets.logo2} alt="logo" className="h-10" />
       </Link>
       <div
         className={`max-sm:fixed max-sm:h-screen max-sm:w-full max-sm:top-16 max-sm:border border-borderColor right-0 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 max-sm:p-4 transition-all duration-300 z-50 ease-in-out ${
