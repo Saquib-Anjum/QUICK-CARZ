@@ -40,6 +40,8 @@ import car_image1 from "./car_image1.png";
 import car_image2 from "./car_image2.png";
 import car_image3 from "./car_image3.png";
 import car_image4 from "./car_image4.png";
+import car_image5 from "./car_image5.jpeg";
+import car_image6 from "./car_image6.jpeg";
 //logos
 import logo1 from "./logo1.svg";
 import logo2 from "./logo2.svg";
@@ -91,6 +93,8 @@ export const assets = {
   car_image2,
   car_image3,
   car_image4,
+  car_image5,
+  car_image6,
 };
 
 export const menuLinks = [
@@ -200,12 +204,48 @@ export const dummyCarData = [
     seating_capacity: 2,
     fuel_type: "Diesel",
     transmission: "Semi-Automatic",
-    pricePerDay: 209 * 83,
+    pricePerDay: 209 * 80,
     location: "Houston",
     description:
       "This is a mid-size luxury sedan produced by Toyota. The Corolla made its debut in 2008 as the first sedan ever produced by Toyota.",
     isAvaliable: true,
     createdAt: "2025-04-17T06:15:47.318Z",
+  },
+  {
+    _id: "68009d94b4f6gd7449fb8f45",
+    owner: "67fe3467ed8a8fe17d0ba6e2",
+    brand: "Tata",
+    model: "Nexon",
+    image: car_image5,
+    year: 2022,
+    category: "SUV",
+    seating_capacity: 5,
+    fuel_type: "Electric",
+    transmission: "Automatic",
+    pricePerDay: 3200, // ₹3,200 per day
+    location: "Chennai",
+    description:
+      "The Tata Nexon EV is India's popular electric SUV offering zero emissions, low running costs, and modern connectivity features.",
+    isAvaliable: true,
+    createdAt: "2025-04-17T07:20:15.445Z",
+  },
+  {
+    _id: "68009e85c5g7he8550gc9g56",
+    owner: "67fe3467ed8a8fe17d0ba6e2",
+    brand: "Honda",
+    model: "City",
+    image: car_image6,
+    year: 2021,
+    category: "Sedan",
+    seating_capacity: 5,
+    fuel_type: "Petrol",
+    transmission: "CVT",
+    pricePerDay: 2800, // ₹2,800 per day
+    location: "Kolkata",
+    description:
+      "The Honda City is a premium sedan known for its spacious interiors, smooth CVT transmission, and excellent build quality.",
+    isAvaliable: true,
+    createdAt: "2025-04-17T08:15:30.720Z",
   },
 ];
 
@@ -218,7 +258,7 @@ export const dummyMyBookingsData = [
     pickupDate: "2025-06-13T00:00:00.000Z",
     returnDate: "2025-06-14T00:00:00.000Z",
     status: "confirmed",
-    price: 440 * 83,
+    price: 440 * 80,
     createdAt: "2025-06-10T12:57:48.244Z",
   },
   {
@@ -229,7 +269,7 @@ export const dummyMyBookingsData = [
     pickupDate: "2025-06-12T00:00:00.000Z",
     returnDate: "2025-06-12T00:00:00.000Z",
     status: "pending",
-    price: 130 * 83,
+    price: 130 * 80,
     createdAt: "2025-06-10T12:57:25.613Z",
   },
   {
@@ -251,7 +291,7 @@ export const dummyMyBookingsData = [
     pickupDate: "2025-06-11T00:00:00.000Z",
     returnDate: "2025-06-12T00:00:00.000Z",
     status: "confirmed",
-    price: 440 * 83,
+    price: 440 * 80,
     createdAt: "2025-06-10T09:44:25.410Z",
   },
 ];
@@ -262,5 +302,116 @@ export const dummyDashboardData = {
   pendingBookings: 0,
   completedBookings: 2,
   recentBookings: [dummyMyBookingsData[0], dummyMyBookingsData[1]],
-  monthlyRevenue: 840,
+  monthlyRevenue: 840 * 80,
 };
+
+// export const dummyCarData = [
+//   {
+//     _id: "67ff5bc069c03d4e45f30b77",
+//     owner: "67fe3467ed8a8fe17d0ba6e2",
+//     brand: "BMW",
+//     model: "X5",
+//     image: car_image1,
+//     year: 2020,
+//     category: "SUV",
+//     seating_capacity: 5,
+//     fuel_type: "Diesel",
+//     transmission: "Automatic",
+//     pricePerDay: 8500, // ₹8,500 per day
+//     location: "Mumbai",
+//     description:
+//       "The BMW X5 is a premium luxury SUV that offers exceptional comfort and performance. Perfect for long drives and city commuting with advanced safety features.",
+//     isAvaliable: true,
+//     createdAt: "2025-04-16T07:26:56.215Z",
+//   },
+//   {
+//     _id: "67ff6b758f1b3684286a2a65",
+//     owner: "67fe3467ed8a8fe17d0ba6e2",
+//     brand: "Maruti Suzuki",
+//     model: "Swift Dzire",
+//     image: car_image2,
+//     year: 2022,
+//     category: "Sedan",
+//     seating_capacity: 5,
+//     fuel_type: "Petrol",
+//     transmission: "Manual",
+//     pricePerDay: 2200, // ₹2,200 per day
+//     location: "Delhi",
+//     description:
+//       "The Maruti Suzuki Swift Dzire is India's most popular compact sedan. Known for its fuel efficiency, reliability, and comfortable ride quality.",
+//     isAvaliable: true,
+//     createdAt: "2025-04-16T08:33:57.993Z",
+//   },
+//   {
+//     _id: "67ff6b9f8f1b3684286a2a68",
+//     owner: "67fe3467ed8a8fe17d0ba6e2",
+//     brand: "Mahindra",
+//     model: "Thar",
+//     image: car_image3,
+//     year: 2023,
+//     category: "SUV",
+//     seating_capacity: 4,
+//     fuel_type: "Diesel",
+//     transmission: "Manual",
+//     pricePerDay: 4500, // ₹4,500 per day
+//     location: "Bangalore",
+//     description:
+//       "The Mahindra Thar is an iconic off-road SUV perfect for adventure enthusiasts. Built tough for Indian roads with excellent ground clearance.",
+//     isAvaliable: true,
+//     createdAt: "2025-04-16T08:34:39.592Z",
+//   },
+//   {
+//     _id: "68009c93a3f5fc6338ea7e34",
+//     owner: "67fe3467ed8a8fe17d0ba6e2",
+//     brand: "Hyundai",
+//     model: "Creta",
+//     image: car_image4,
+//     year: 2023,
+//     category: "SUV",
+//     seating_capacity: 5,
+//     fuel_type: "Petrol",
+//     transmission: "Automatic",
+//     pricePerDay: 3800, // ₹3,800 per day
+//     location: "Pune",
+//     description:
+//       "The Hyundai Creta is a feature-packed compact SUV with premium interiors, advanced technology, and excellent fuel efficiency for urban drives.",
+//     isAvaliable: true,
+//     createdAt: "2025-04-17T06:15:47.318Z",
+//   },
+//   {
+//     _id: "68009d94b4f6gd7449fb8f45",
+//     owner: "67fe3467ed8a8fe17d0ba6e2",
+//     brand: "Tata",
+//     model: "Nexon",
+//     image: car_image5,
+//     year: 2022,
+//     category: "SUV",
+//     seating_capacity: 5,
+//     fuel_type: "Electric",
+//     transmission: "Automatic",
+//     pricePerDay: 3200, // ₹3,200 per day
+//     location: "Chennai",
+//     description:
+//       "The Tata Nexon EV is India's popular electric SUV offering zero emissions, low running costs, and modern connectivity features.",
+//     isAvaliable: true,
+//     createdAt: "2025-04-17T07:20:15.445Z",
+//   },
+//   {
+//     _id: "68009e85c5g7he8550gc9g56",
+//     owner: "67fe3467ed8a8fe17d0ba6e2",
+//     brand: "Honda",
+//     model: "City",
+//     image: car_image6,
+//     year: 2021,
+//     category: "Sedan",
+//     seating_capacity: 5,
+//     fuel_type: "Petrol",
+//     transmission: "CVT",
+//     pricePerDay: 2800, // ₹2,800 per day
+//     location: "Kolkata",
+//     description:
+//       "The Honda City is a premium sedan known for its spacious interiors, smooth CVT transmission, and excellent build quality.",
+//     isAvaliable: true,
+//     createdAt: "2025-04-17T08:15:30.720Z",
+//   },
+// ];
