@@ -46,7 +46,14 @@ import car_image6 from "./car_image6.jpeg";
 import logo1 from "./logo1.svg";
 import logo2 from "./logo2.svg";
 
-export const cityList = ["New Delhi", "Mumbai", "Pune", "Banglore"];
+export const cityList = [
+  "Delhi/NCR",
+  "Hydrabad",
+  "Kolkata",
+  "Channai",
+  "Mumbai",
+  "Banglore",
+];
 
 export const assets = {
   logo1,
