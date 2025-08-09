@@ -41,7 +41,7 @@ export const register = async (req, res) => {
     res.json({
       success: true,
       message: "user Successfully created",
-      token: token,
+      token,
     });
   } catch (err) {
     console.log(err.message);
@@ -75,6 +75,7 @@ export const login = async (req, res) => {
     res.json({
       success: true,
       message: "User logged in",
+      token,
     });
   } catch (err) {
     console.log(err.message);
@@ -91,6 +92,7 @@ export const getUserData = async (req, res) => {
     const { user } = req;
     res.json({
       success: true,
+      message: "here is the user ☁️",
       user,
     });
   } catch (err) {

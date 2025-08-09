@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 dotenv.config();
 import connectDB from "./config/db.js";
 import userRouter from "./routes/userRoutes.js";
+import ownerRouter from "./routes/ownerRoute.js";
 // Create an Express application
 const app = express();
 
@@ -19,6 +20,7 @@ app.use(cors());
 
 // ---------- Routes ----------
 app.use("/api/user", userRouter);
+app.use("/api/owner", ownerRouter);
 // Default route - responds to any request to "/"
 app.use("/", (req, res) => {
   res.json("API WORKING ⚒️"); // Sends a JSON response

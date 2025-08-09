@@ -18,7 +18,8 @@ const protect = async (req, res, next) => {
       });
     }
 
-    await userModel.findOne({ userId });
+    req.user = await userModel.findById(userId).select("-password");
+    next();
   } catch (err) {
     console.log(err);
     res.json({

@@ -8,6 +8,27 @@ const FeaturedSection = () => {
   return (
     <div className="flex flex-col items-center py-24 px-6 md:px-16 lg-px-24 xl:px-32">
       <div>
+        <div class=" mt-5 mb-5 w-full flex items-center justify-center space-x-2 max-w-lg py-2.5 rounded-lg font-medium text-sm text-white text-center bg-gradient-to-r from-violet-500 via-[#9938CA] to-[#E0724A]">
+          <p>
+            Get 20% OFF on Your First Booking!{" "}
+            <span class="underline"> Get your Car Now! </span>
+          </p>
+          <svg
+            width="15"
+            height="11"
+            viewBox="0 0 15 11"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M1 5.5h13.092M8.949 1l5.143 4.5L8.949 10"
+              stroke="#fff"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
         <Title
           title="Featured Vehicles"
           subTitle="Explore our selection of premium vehicles available for you nextt adventure."
