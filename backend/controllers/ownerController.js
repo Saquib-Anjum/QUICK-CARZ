@@ -5,11 +5,12 @@ import carModel from "../models/carModel.js";
 import multer from "multer";
 import fs from "fs";
 import imagekit from "../config/imageKit.js";
+import bookingModel from "../models/BookingModel.js";
 // api change role
 export const changeRoleToOwner = async (req, res) => {
   try {
     const { _id } = req.user;
-    await userModel.findOneAndUpdate(_id, { role: "owner" });
+    await userModel.findByIdAndUpdate(_id, { role: "owner" });
     res.json({
       success: true,
       message: "Now you yan list cars",
@@ -66,7 +67,7 @@ export const addCar = async (req, res) => {
 
 // API to list owner car
 
-export const getOwnersCar = async (eq, res) => {
+export const getOwnersCar = async (req, res) => {
   try {
     const { _id } = req.user;
     const cars = await carModel.find({ owner: _id });
@@ -99,7 +100,7 @@ export const toggleCarAvailability = async (req, res) => {
         message: "Unauthorized",
       });
     }
-    car.isAvailable != car.isAvailable;
+    car.isAvailable = !car.isAvailable;
     await car.save();
     res.json({
       success: true,
@@ -155,6 +156,78 @@ export const getDashboardData = async (req, res) => {
       });
     }
     const cars = await carModel.find({ owner: _id });
+
+    const bookings = await bookingModel
+      .find({ owner: _id })
+      .populate("car")
+      .sort({ createdAt: -1 });
+    const pendingBookings = await bookingModel.find({
+      owner: _id,
+      status: "pending",
+    });
+    const completedBookings = await bookingModel.find({
+      owner: _id,
+      status: "confirmed",
+    });
+
+    // calculate monthly revenue
+
+    const monthlyRevenue = bookings
+      .slice()
+      .filter((booking) => booking.status === "confirmed")
+      .reduce((acc, booking) => acc + booking.price, 0);
+
+    const recentBookings = bookings.slice(0, 3);
+
+    const dashboardData = {
+      totalCars: cars.length,
+      totalBookings: bookings.length,
+      pendingBookings: pendingBookings.length,
+      completedBookings: completedBookings.length,
+      recentBookings: recentBookings.length,
+      monthlyRevenue,
+    };
+    res.json({
+      success: true,
+      dashboardData,
+    });
+  } catch (err) {
+    console.log(err);
+    res.json({
+      success: false,
+      message: err.message,
+    });
+  }
+};
+
+// API to update user profile
+export const updateUserImage = async (req, res) => {
+  try {
+    const { _id } = req.user;
+    const imageFile = req.file;
+    // upload image to imagekit
+    const fileBuffer = fs.readFileSync(imageFile.path);
+    const response = await imagekit.upload({
+      file: fileBuffer,
+      fileName: imageFile.originalname,
+      folder: "/users",
+    });
+    // For URL Generation, works for both images and videos
+    var optimizedImageURL = imagekit.url({
+      path: response.filePath,
+
+      transformation: [
+        { width: "400" },
+        { quality: "auto" },
+        { format: "webp" },
+      ],
+    });
+    const image = optimizedImageURL;
+    await userModel.findByIdAndUpdate(_id, { image });
+    res.json({
+      success: true,
+      message: "Image updated",
+    });
   } catch (err) {
     console.log(err);
     res.json({

@@ -42,6 +42,8 @@ import car_image3 from "./car_image3.png";
 import car_image4 from "./car_image4.png";
 import car_image5 from "./car_image5.jpeg";
 import car_image6 from "./car_image6.jpeg";
+// main car ka duplicate
+import main_car1 from "./main_car1.png";
 //logos
 import logo1 from "./logo1.svg";
 import logo2 from "./logo2.svg";
@@ -102,6 +104,7 @@ export const assets = {
   car_image4,
   car_image5,
   car_image6,
+  main_car1,
 };
 
 export const menuLinks = [

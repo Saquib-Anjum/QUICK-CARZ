@@ -64,7 +64,7 @@ const Hero = () => {
             search
           </button>
         </form>
-        <img src={assets.main_car} alt="main Car" className="max-h-74" />
+        <img src={assets.main_car1} alt="main Car" className="max-h-74" />
       </div>
     </>
   );
