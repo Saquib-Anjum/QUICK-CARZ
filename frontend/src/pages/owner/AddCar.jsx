@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Title from "../../components/owner/TitleOwner";
 import { assets } from "../../assets/assets";
+import { useAppContext } from "../../context/AppContext";
+import { toast } from "react-hot-toast";
 const AddCar = () => {
   const currency = import.meta.env.VITE_CURRENCY;
+  const { axios } = useAppContext();
+
+  const [isLoading, setIsLoading] = useState(false);
   const [image, setImage] = useState(null);
   const [car, setCar] = useState({
     brand: "",
@@ -11,13 +16,55 @@ const AddCar = () => {
     pricePerDay: 0,
     category: "",
     transmission: "",
-    feul_type: "",
+    fuel_type: "",
     seating_capacity: 0,
     location: "",
     description: "",
   });
   const submitHandler = async (e) => {
     e.preventDefault();
+    if (isLoading) {
+      return null;
+      setIsLoading(true);
+    }
+    try {
+      const formData = new FormData();
+      formData.append("image", image);
+      formData.append("carData", JSON.stringify(car));
+
+      // Fix: Correct the API endpoint URL
+      const { data } = await axios.post("/api/owner/add-car", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+
+      if (data.success) {
+        toast.success(data.message);
+        setImage(null);
+        setCar({
+          brand: "",
+          model: "",
+          year: 0,
+          pricePerDay: 0,
+          category: "",
+          transmission: "",
+          fuel_type: "", // Fixed typo here too
+          seating_capacity: 0,
+          location: "",
+          description: "",
+        });
+      } else {
+        toast.error(data.message);
+      }
+    } catch (err) {
+      console.error("Submit error:", err);
+      toast.error(
+        err.response?.data?.message || err.message || "Failed to add car"
+      );
+    } finally {
+      setIsLoading(false);
+    }
   };
   return (
     <div className="px-4 py-10 md:px-10 flex-1">
@@ -118,7 +165,7 @@ const AddCar = () => {
             </select>
           </div>
         </div>
-        {/* car trnsmission feul type capacity */}
+        {/* car trnsmission fuel type capacity */}
         <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 ">
           {/* 1st */}
           <div className="flex flex-col w-full">
@@ -136,10 +183,11 @@ const AddCar = () => {
           </div>
           {/* 2nd */}
           <div className="flex flex-col w-full">
-            <label>Feul Type</label>
+            <label>Fuel Type</label>
             <select
-              onChange={(e) => setCar({ ...car, feul_type: e.target.value })}
-              value={car.feul_type}
+              onChange={(e) => setCar({ ...car, fuel_type: e.target.value })}
+              value={car.fuel_type}
+              required
               className="px-3 py-2 mt-1 border border-r-borderColor rounded-md outline-none"
             >
               <option value="">Select Feul Type</option>
@@ -170,8 +218,9 @@ const AddCar = () => {
         <div className="flex flex-col w-full">
           <label>Location📌 </label>
           <select
-            onChange={(e) => setCar({ ...car, feul_type: e.target.value })}
-            value={car.feul_type}
+            onChange={(e) => setCar({ ...car, location: e.target.value })}
+            value={car.location}
+            required
             className="px-3 py-2 mt-1 border border-r-borderColor rounded-md outline-none"
           >
             <option value="">Select Location</option>
@@ -188,7 +237,7 @@ const AddCar = () => {
         <div className="flex flex-col w-full">
           <label>Description </label>
           <textarea
-            placeholderr
+            placeholder
             name="e.g. A luxury SUV with a spacious interior and a powerful engine"
             id=""
             required
@@ -200,7 +249,7 @@ const AddCar = () => {
         </div>
         <button className="flex items-center gap-2 px-4 py-2.5 mt-4 bg-primary text-white rounded-md font-medium w-max cursor pointer">
           <img src={assets.tick_icon} alt="" />
-          List Your Car
+          {isLoading ? "Listing🚗🚗🚗🚗🚗🚗🚗🚗🚗" : "  List Your Car"}
         </button>
       </form>
     </div>

@@ -22,7 +22,7 @@ app.use(cors());
 // ---------- Routes ----------
 app.use("/api/user", userRouter);
 app.use("/api/owner", ownerRouter);
-app.use("/api/booking", bookingRouter);
+app.use("/api/bookings", bookingRouter);
 // Default route - responds to any request to "/"
 app.use("/", (req, res) => {
   res.json("API WORKING ⚒️"); // Sends a JSON response

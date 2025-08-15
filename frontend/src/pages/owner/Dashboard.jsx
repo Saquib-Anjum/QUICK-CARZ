@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
-
+import { useAppContext } from "../../context/AppContext";
 import { assets, dummyDashboardData } from "../../assets/assets";
 import TitleOwner from "../../components/owner/TitleOwner";
+
+import { toast } from "react-hot-toast";
 const Dashboard = () => {
   const currency = import.meta.env.VITE_CURRENCY;
+  const { axios, isOwner } = useAppContext();
   const [data, setData] = useState({
     totalCars: 0,
     totalBookings: 0,
@@ -35,9 +38,23 @@ const Dashboard = () => {
       icon: assets.listIconColored,
     },
   ];
+  const fetchDashboardData = async () => {
+    try {
+      const { data } = await axios.get("/api/owner/dashboard");
+      if (data.success) {
+        setData(data.dashboardData);
+      } else {
+        toast.error(data.message);
+      }
+    } catch (err) {
+      toast.error(err.message);
+    }
+  };
   useEffect(() => {
-    setData(dummyDashboardData);
-  }, []);
+    if (isOwner) {
+      fetchDashboardData();
+    }
+  }, [isOwner]);
 
   return (
     <div className="px-4 pt-10 md:px-10 flex-1">
@@ -71,35 +88,36 @@ const Dashboard = () => {
           <h1 className="text-lg font-medium">Recent Bookings</h1>
           <p className="text-gray-500">Latest customer bookings</p>
 
-          {data.recentBookings.map((booking, idx) => (
-            <div key={idx} className="mt-4 flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <div className="hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-primary/10">
-                  <img
-                    src={assets.listIconColored}
-                    alt=""
-                    className="h-5 w-5"
-                  />
+          {Array.isArray(data.recentBookings) &&
+            data.recentBookings.map((booking, idx) => (
+              <div key={idx} className="mt-4 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <div className="hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-primary/10">
+                    <img
+                      src={assets.listIconColored}
+                      alt=""
+                      className="h-5 w-5"
+                    />
+                  </div>
+                  <div>
+                    <p>
+                      {booking.car.brand} {booking.car.model}
+                    </p>
+                    <p className="text-sm text-gray-500">
+                      {booking.createdAt.split("T")[0]}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <p>
-                    {booking.car.brand} {booking.car.model}
-                  </p>
+                <div className="flex item-center gap-2 font-medium">
                   <p className="text-sm text-gray-500">
-                    {booking.createdAt.split("T")[0]}
+                    {currency} {booking.price}
+                  </p>
+                  <p className="px-3 py-0 border-borderColor rounded-full text-sm">
+                    {booking.status}
                   </p>
                 </div>
               </div>
-              <div className="flex item-center gap-2 font-medium">
-                <p className="text-sm text-gray-500">
-                  {currency} {booking.price}
-                </p>
-                <p className="px-3 py-0 border-borderColor rounded-full text-sm">
-                  {booking.status}
-                </p>
-              </div>
-            </div>
-          ))}
+            ))}
         </div>
         {/* monthy revenue */}
         <div className="shadow-[0px_10px_1px_rgba(221,_221,_221,_1),_0_10px_20px_rgba(204,_204,_204,_1)] p-4 md:p-6 mb-6 border border-borderColor rounded-md w-full md:max-w-xs">

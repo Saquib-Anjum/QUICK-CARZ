@@ -3,15 +3,17 @@ import Title from "../components/Title";
 import { dummyCarData, assets } from "../assets/assets";
 import CarCard from "../components/CarCard";
 import { useNavigate } from "react-router-dom";
+import { useAppContext } from "../context/AppContext";
 const FeaturedSection = () => {
   const navigate = useNavigate();
+  const { cars } = useAppContext();
   return (
     <div className="flex flex-col items-center py-24 px-6 md:px-16 lg-px-24 xl:px-32">
       <div>
-        <div class=" mt-5 mb-5 w-full flex items-center justify-center space-x-2 max-w-lg py-2.5 rounded-lg font-medium text-sm text-white text-center bg-gradient-to-r from-violet-500 via-[#9938CA] to-[#E0724A]">
+        <div className=" mt-5 mb-5 w-full flex items-center justify-center space-x-2 max-w-lg py-2.5 rounded-lg font-medium text-sm text-white text-center bg-gradient-to-r from-violet-500 via-[#9938CA] to-[#E0724A]">
           <p>
             Get 20% OFF on Your First Booking!{" "}
-            <span class="underline"> Get your Car Now! </span>
+            <span className="underline"> Get your Car Now! </span>
           </p>
           <svg
             width="15"
@@ -36,7 +38,7 @@ const FeaturedSection = () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-18">
-        {dummyCarData.slice(0, 6).map((car, idx) => (
+        {cars.slice(0, 6).map((car, idx) => (
           <div key={car._id}>
             <CarCard car={car} />
           </div>

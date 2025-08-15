@@ -2,9 +2,10 @@ import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 import userModel from "../models/userModel.js";
 import jwt from "jsonwebtoken";
+import carModel from "../models/carModel.js";
 // create JWT function: generate token
 const generateJWT = (userId) => {
-  const payload = userId;
+  const payload = { id: userId };
   return jwt.sign(payload, process.env.JWT_SECRET);
 };
 //registeration of user
@@ -61,7 +62,7 @@ export const login = async (req, res) => {
     if (!userData) {
       return res.json({
         success: false,
-        message: "User not found",
+        message: "User 🙏 not found",
       });
     }
     const isMatched = await bcrypt.compare(password, userData.password);
@@ -90,6 +91,7 @@ export const login = async (req, res) => {
 export const getUserData = async (req, res) => {
   try {
     const { user } = req;
+
     res.json({
       success: true,
       message: "here is the user ☁️",
@@ -97,5 +99,27 @@ export const getUserData = async (req, res) => {
     });
   } catch (err) {
     console.log(err.message);
+    res.json({
+      success: false,
+      message: err.message,
+    });
+  }
+};
+
+// get All car datafor the frontend
+
+export const getCars = async (req, res) => {
+  try {
+    const cars = await carModel.find({ isAvailable: true });
+    res.json({
+      success: true,
+      cars,
+    });
+  } catch (err) {
+    console.log(err.message);
+    res.json({
+      success: false,
+      message: err.message,
+    });
   }
 };

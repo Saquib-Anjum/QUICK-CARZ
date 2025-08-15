@@ -164,7 +164,7 @@ export const dummyCarData = [
     location: "New York",
     description:
       "The BMW X5 is a mid-size luxury SUV produced by BMW. The X5 made its debut in 1999 as the first SUV ever produced by BMW.",
-    isAvaliable: true,
+    isAvailable: true,
     createdAt: "2025-04-16T07:26:56.215Z",
   },
   {
@@ -182,7 +182,7 @@ export const dummyCarData = [
     location: "Chicago",
     description:
       "The Toyota Corolla is a mid-size luxury sedan produced by Toyota. The Corolla made its debut in 2008 as the first sedan ever produced by Toyota.",
-    isAvaliable: true,
+    isAvailable: true,
     createdAt: "2025-04-16T08:33:57.993Z",
   },
   {
@@ -200,7 +200,7 @@ export const dummyCarData = [
     location: "Los Angeles",
     description:
       "The Jeep Wrangler is a mid-size luxury SUV produced by Jeep. The Wrangler made its debut in 2003 as the first SUV ever produced by Jeep.",
-    isAvaliable: true,
+    isAvailable: true,
     createdAt: "2025-04-16T08:34:39.592Z",
   },
   {
@@ -218,7 +218,7 @@ export const dummyCarData = [
     location: "Houston",
     description:
       "This is a mid-size luxury sedan produced by Toyota. The Corolla made its debut in 2008 as the first sedan ever produced by Toyota.",
-    isAvaliable: true,
+    isAvailable: true,
     createdAt: "2025-04-17T06:15:47.318Z",
   },
   {
@@ -236,7 +236,7 @@ export const dummyCarData = [
     location: "Chennai",
     description:
       "The Tata Nexon EV is India's popular electric SUV offering zero emissions, low running costs, and modern connectivity features.",
-    isAvaliable: true,
+    isAvailable: true,
     createdAt: "2025-04-17T07:20:15.445Z",
   },
   {
@@ -254,7 +254,7 @@ export const dummyCarData = [
     location: "Kolkata",
     description:
       "The Honda City is a premium sedan known for its spacious interiors, smooth CVT transmission, and excellent build quality.",
-    isAvaliable: true,
+    isAvailable: true,
     createdAt: "2025-04-17T08:15:30.720Z",
   },
 ];
@@ -331,7 +331,7 @@ export const dummyDashboardData = {
 //     location: "Mumbai",
 //     description:
 //       "The BMW X5 is a premium luxury SUV that offers exceptional comfort and performance. Perfect for long drives and city commuting with advanced safety features.",
-//     isAvaliable: true,
+//     isAvailable: true,
 //     createdAt: "2025-04-16T07:26:56.215Z",
 //   },
 //   {
@@ -349,7 +349,7 @@ export const dummyDashboardData = {
 //     location: "Delhi",
 //     description:
 //       "The Maruti Suzuki Swift Dzire is India's most popular compact sedan. Known for its fuel efficiency, reliability, and comfortable ride quality.",
-//     isAvaliable: true,
+//     isAvailable: true,
 //     createdAt: "2025-04-16T08:33:57.993Z",
 //   },
 //   {
@@ -367,7 +367,7 @@ export const dummyDashboardData = {
 //     location: "Bangalore",
 //     description:
 //       "The Mahindra Thar is an iconic off-road SUV perfect for adventure enthusiasts. Built tough for Indian roads with excellent ground clearance.",
-//     isAvaliable: true,
+//     isAvailable: true,
 //     createdAt: "2025-04-16T08:34:39.592Z",
 //   },
 //   {
@@ -385,7 +385,7 @@ export const dummyDashboardData = {
 //     location: "Pune",
 //     description:
 //       "The Hyundai Creta is a feature-packed compact SUV with premium interiors, advanced technology, and excellent fuel efficiency for urban drives.",
-//     isAvaliable: true,
+//     isAvailable: true,
 //     createdAt: "2025-04-17T06:15:47.318Z",
 //   },
 //   {
@@ -403,7 +403,7 @@ export const dummyDashboardData = {
 //     location: "Chennai",
 //     description:
 //       "The Tata Nexon EV is India's popular electric SUV offering zero emissions, low running costs, and modern connectivity features.",
-//     isAvaliable: true,
+//     isAvailable: true,
 //     createdAt: "2025-04-17T07:20:15.445Z",
 //   },
 //   {
@@ -421,7 +421,7 @@ export const dummyDashboardData = {
 //     location: "Kolkata",
 //     description:
 //       "The Honda City is a premium sedan known for its spacious interiors, smooth CVT transmission, and excellent build quality.",
-//     isAvaliable: true,
+//     isAvailable: true,
 //     createdAt: "2025-04-17T08:15:30.720Z",
 //   },
 // ];

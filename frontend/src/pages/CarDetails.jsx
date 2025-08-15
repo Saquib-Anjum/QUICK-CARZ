@@ -1,20 +1,49 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { dummyCarData, assets } from "../assets/assets";
-
+import { assets } from "../assets/assets";
+import { toast } from "react-hot-toast";
+import { useAppContext } from "../context/AppContext";
 import Loader from "../components/Loader";
 const CarDetails = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
+  const {
+    axios,
+    navigate,
+    cars,
+    setCars,
+    pickupDate,
+    setPickupDate,
+    returnDate,
+    setReturnDate,
+  } = useAppContext();
+
   const [car, setCar] = useState(null);
   const currency = import.meta.env.VITE_CURRENCY;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      const { data } = await axios.post("/api/bookings/create", {
+        car: id,
+        pickupDate,
+        returnDate,
+      });
+
+      if (data.success) {
+        toast.success(data.message);
+        navigate("/my-bookings");
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
+    {
+    }
   };
   useEffect(() => {
-    setCar(dummyCarData.find((car) => car._id === id));
-  }, [id]);
+    setCar(cars.find((car) => car._id === id));
+  }, [cars, id]);
   return car ? (
     <div className=" px-6 md-px-16 lg:px-24 xl:px-24  mt-16">
       <button
@@ -112,6 +141,8 @@ const CarDetails = () => {
               Pickup Date
             </label>
             <input
+              onChange={(e) => setPickupDate(e.target.value)}
+              value={pickupDate}
               type="date"
               id="pickup-date"
               className="border border-borderColor px-3 py-2"
@@ -125,6 +156,8 @@ const CarDetails = () => {
               Return Date
             </label>
             <input
+              onChange={(e) => setReturnDate(e.target.value)}
+              value={returnDate}
               type="date"
               id="return-date"
               className="border border-borderColor px-3 py-2"
