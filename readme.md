@@ -1,6 +1,5 @@
-
 <div align="center">
-   <img src="https://your-banner-image-link.com" alt="Quick Carz Banner" width="100%" /> <!-- Replace with actual banner image -->
+   <img src="https://github.com/Saquib-Anjum/QUICK-CARZ/blob/main/screenshots/Screenshot%202025-08-10%20003041.png" alt="Quick Carz Banner" width="100%" /> <!-- Replace with actual banner image -->
   
    <h1>🚗 <span style="color:#00BFFF">Quick Carz</span></h1>
    <p><b>Book Your Dream Ride, Anytime, Anywhere</b></p>
@@ -35,14 +34,14 @@
 
 ## 🛠️ Tech Stack
 
-| Category      | Technologies                                      |
-|-------------- |---------------------------------------------------|
-| <b>Frontend</b>  | React.js, Tailwind CSS / CSS Modules              |
-| <b>Backend</b>   | Node.js, Express.js                              |
-| <b>Database</b>  | MongoDB (Mongoose)                               |
-| <b>Image CDN</b> | ImageKit.io                                      |
-| <b>Auth</b>      | JWT (JSON Web Tokens)                            |
-| <b>Hosting</b>   | Vercel (Backend) & Netlify / Vercel (Frontend)   |
+| Category         | Technologies                                   |
+| ---------------- | ---------------------------------------------- |
+| <b>Frontend</b>  | React.js, Tailwind CSS / CSS Modules           |
+| <b>Backend</b>   | Node.js, Express.js                            |
+| <b>Database</b>  | MongoDB (Mongoose)                             |
+| <b>Image CDN</b> | ImageKit.io                                    |
+| <b>Auth</b>      | JWT (JSON Web Tokens)                          |
+| <b>Hosting</b>   | Vercel (Backend) & Netlify / Vercel (Frontend) |
 
 ---
 
@@ -57,8 +56,8 @@
 ## 📸 Screenshots
 
 <div align="center">
-   <img src="https://your-screenshot-link-1.com" alt="Home Screenshot" width="70%" /> <!-- Replace with actual screenshot links -->
-   <img src="https://your-screenshot-link-2.com" alt="Booking Screenshot" width="70%" />
+   <img src="https://github.com/Saquib-Anjum/QUICK-CARZ/blob/main/screenshots/Screenshot%202025-08-10%20003812.png" alt="Home Screenshot" width="70%" /> <!-- Replace with actual screenshot links -->
+   <img src="https://github.com/Saquib-Anjum/QUICK-CARZ/blob/main/screenshots/Screenshot%202025-08-10%20004641.png" alt="Booking Screenshot" width="70%" />
 </div>
 
 ---
