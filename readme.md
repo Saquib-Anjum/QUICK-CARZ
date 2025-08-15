@@ -9,7 +9,7 @@
       <img src="https://img.shields.io/badge/License-MIT-yellow" />
       <img src="https://img.shields.io/badge/PRs-Welcome-brightgreen" />
    </p>
-   <a href="https://quick-carz.vercel.app" target="_blank">
+   <a href="https://quick-carz-seven.vercel.app" target="_blank">
       <img src="https://img.shields.io/badge/Live%20Demo-Frontend-orange?style=for-the-badge" />
    </a>
    <a href="https://quick-carz-backend.vercel.app" target="_blank">
@@ -48,7 +48,7 @@
 ## 🚀 Live Demo
 
 <p>
-   <a href="https://quick-carz.vercel.app" target="_blank"><b>🌐 Frontend</b></a> &nbsp;|&nbsp; <a href="https://quick-carz-backend.vercel.app" target="_blank"><b>🔗 Backend API</b></a>
+   <a href="https://quick-carz-seven.vercel.app" target="_blank"><b>🌐 Frontend</b></a>  
 </p>
 
 ---
